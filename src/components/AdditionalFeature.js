@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { addFeature } from '../actions/index';
+import { addFeature } from '../actions/carActions';
 import { connect } from 'react-redux';
 
 const AdditionalFeature = props => {
@@ -13,4 +13,4 @@ const AdditionalFeature = props => {
   );
 };
 
-export default connect(null, {addFeature}) (AdditionalFeature);
+export default connect(null, { addFeature }) (AdditionalFeature);
