@@ -1,11 +1,12 @@
-import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/carActions'
+import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/carActions';
 
 export const initialState = {
     additionalPrice: 0,
     car: {
         price: 26395,
         name: '2019 Ford Mustang',
-        image: 'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
+        image:
+            'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
         features: []
     },
     additionalFeatures: [
@@ -16,30 +17,31 @@ export const initialState = {
     ]
 };
 
-const carReducer = (state = initialState, action) => {
+const carReducer = (state=initialState, action) => {
     switch (action.type) {
         case ADD_FEATURE:
             return {
-                ...state, 
+                ...state,
                 car: {
-                    ...state.car, 
+                    ...state.car,
                     features: [...state.car.features, action.payload]
                 },
-                additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id), 
+                additionalFeatures: state.additionalFeatures.filter(feature => feature.id !== action.payload.id),
                 additionalPrice: state.additionalPrice + action.payload.price
             };
         case REMOVE_FEATURE:
             return {
-                ...state, 
+                ...state,
                 car: {
-                    ...state.car, 
-                    features: state.car.features.filter(feature => feature.id !== action.payload.id)},
-                additionalFeatures: [...state.additionalFeatures, action.payload], 
+                    ...state.car,
+                    features: state.car.features.filter(feature => feature.id !== action.payload.id)
+                },
+                additionalFeatures: [...state.additionalFeatures, action.payload],
                 additionalPrice: state.additionalPrice - action.payload.price
-                }
-                default: 
-                    return state
-    }  
-}
+            };
+        default:
+            return state;
+    }
+};
 
 export default carReducer;

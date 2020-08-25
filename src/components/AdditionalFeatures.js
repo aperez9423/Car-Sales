@@ -1,5 +1,4 @@
 import React from 'react';
-
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
@@ -18,6 +17,5 @@ const AdditionalFeatures = props => {
     </div>
   );
 };
-
 
 export default AdditionalFeatures;
